@@ -1,2 +1,17 @@
+# Web framework
 Flask==2.3.3
+
+# WSGI server zoptymalizowany pod produkcję
 gunicorn>=21.2.0
+
+# Bezpieczeństwo i walidacja
+Werkzeug>=2.3.0
+
+# JSON parsing i serialization (szybsza alternatywa)
+orjson>=3.9.0
+
+# Async I/O support dla lepszej wydajności
+gevent>=23.7.0
+
+# Monitoring i metryki (opcjonalne)
+psutil>=5.9.0
