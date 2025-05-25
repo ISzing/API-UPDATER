@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Usop settings",
+  "version": "1.41",
+  "description": "Automatycznie ustawia jakość wideo na 1080p i głośność na 100%.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://*.cda.pl/*",
+    "https://*.shinden.pl/*",
+    "https://*.sibnet.ru/*",
+    "https://*.vkvideo.ru/*",
+    "https://*.vk.com/*"
+  ],
+  "icons": {
+    "48": "icon.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "Usop Settings"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.cda.pl/*", "https://*.shinden.pl/*","https://*.sibnet.ru/*","https://*.vkvideo.ru/*","https://*.vk.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "browser_specific_settings": {
+      "gecko": {
+        "id": "ISzingsusop@example.com",
+        "strict_min_version": "109.0"
+      }
+  }
+}

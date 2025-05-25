@@ -1,0 +1,18 @@
+{
+    "A": "skipauto",
+    "B": "nextauto",
+    "X": "pause",
+    "Y": "on_quit2",
+    "Up": "skip2",
+    "Down": "skip3",
+    "Left": "skip1",
+    "Right": "nextend",
+    "RB": "speeddown",
+    "LB": "speedup",
+    "RT": "rskipnij",
+    "LT": "skipnij",
+    "LGa": "ekranl",
+    "RGa": "ekranp",
+    "Menu": "z",
+    "Pause": "x"
+}

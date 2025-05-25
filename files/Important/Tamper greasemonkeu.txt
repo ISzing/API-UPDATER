@@ -1,0 +1,71 @@
+// ==UserScript==
+// @name         Auto Quality Selector and Volume Adjuster
+// @namespace    http://tampermonkey.net/
+// @version      0.6
+// @description  Automatyczne ustawienie jakości wideo na 1080p i głośności na 100% po naciśnięciu przycisku 'q'
+// @match        *://*.cda.pl/*
+// @match        *://*.shinden.pl/*
+// @match        *://cda.pl/*
+// @match        *://shinden.pl/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    function simulateClick(element, clientX, clientY) {
+        var event = new MouseEvent('click', {
+            view: window,
+            bubbles: true,
+            cancelable: true,
+            clientX: clientX,
+            clientY: clientY
+        });
+        element.dispatchEvent(event);
+    }
+
+    function setVolumeToMax() {
+        // Znalezienie elementu <video> na stronie
+        var videoElement = document.querySelector('video');
+        if (videoElement) {
+            videoElement.volume = 1.0; // Ustawienie głośności na 100%
+            console.log('Głośność ustawiona na 100% poprzez bezpośrednią manipulację.');
+        } else {
+            console.log('Nie znaleziono elementu wideo na stronie.');
+        }
+    }
+
+    function selectQuality() {
+        var settingsButton = document.querySelector('.pb-settings-click');
+        if (settingsButton) {
+            simulateClick(settingsButton);
+
+            // Czekanie na załadowanie menu ustawień
+            setTimeout(function() {
+                var qualityItem = document.querySelector('li[data-value="hd"] a');
+                if (qualityItem) {
+                    simulateClick(qualityItem);
+                } else {
+                    // Kliknięcie opcji 'sd' jeśli 'hd' nie jest dostępne
+                    var qualityItemSD = document.querySelector('li[data-value="sd"] a');
+                    if (qualityItemSD) {
+                        simulateClick(qualityItemSD);
+                    } else {
+                        console.log('Nie znaleziono opcji jakości HD ani SD');
+                    }
+                }
+            }, 5); // Zwiększony czas oczekiwania na załadowanie menu
+
+            // Ustawienie głośności na 100%
+            setVolumeToMax();
+        } else {
+            console.log('Nie znaleziono przycisku ustawień');
+        }
+    }
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'q') {
+            selectQuality();
+        }
+    });
+})();

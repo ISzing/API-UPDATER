@@ -1,0 +1,11 @@
+###contents > ytd-reel-shelf-renderer.style-scope.ytd-item-section-renderer:nth-child(3)
+shinden.pl##.fansub-ad-info
+shinden.pl##.message, .error
+
+
+
+shinden.pl##.message_list
+shinden.pl##div.l-global-width.l-container-primary:nth-child(4) > div.l-main-contantainer.controller-episode.action-episode-view:last-child > div.parent-page-content.parent-page-episode-view:last-child > article.page-content.page-episode-view:last-child > section.box.episode-player-list:nth-child(5) > div.fansub-ad-info:first-child
+shinden.pl##.fansub-ad-info
+shinden.pl###player-block > form:last-child > button.button:last-child
+shinden.pl###player-block > form:last-child

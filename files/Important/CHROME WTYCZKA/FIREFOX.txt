@@ -1,0 +1,10 @@
+https://addons.mozilla.org/pl/firefox/addon/shinden-sorter-iszing/
+https://addons.mozilla.org/pl/firefox/addon/violentmonkey/
+https://addons.mozilla.org/pl/firefox/addon/videospeed/
+https://addons.mozilla.org/pl/firefox/addon/adguard-adblocker/
+https://addons.mozilla.org/pl/firefox/addon/tampermonkey/
+
+
+https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag 
+https://chromewebstore.google.com/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk
+https://chromewebstore.google.com/detail/bloker-reklam-adguard/bgnkhhnnamicmpeenaelnjfhikgbkllg?hl=pl

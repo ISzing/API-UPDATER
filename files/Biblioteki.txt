@@ -1,0 +1,8 @@
+opencv-python
+pyautogui
+numpy
+cx-freeze
+Pillow
+pystray
+pygame
+keyboard

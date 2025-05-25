@@ -1,0 +1,78 @@
+// ==UserScript==
+// @name         Auto Quality Selector and Volume Adjuster
+// @namespace    http://tampermonkey.net/
+// @version      0.7
+// @description  Automatyczne ustawienie jakości wideo na 1080p i głośności na 100% po naciśnięciu przycisku 'q' lub automatycznie po załadowaniu filmu.
+// @match        *://*.cda.pl/*
+// @match        *://*.shinden.pl/*
+// @match        *://cda.pl/*
+// @match        *://shinden.pl/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    function simulateClick(element) {
+        if (element) {
+            var event = new MouseEvent('click', {
+                view: window,
+                bubbles: true,
+                cancelable: true
+            });
+            element.dispatchEvent(event);
+        }
+    }
+
+    function setVolumeToMax() {
+        var videoElement = document.querySelector('video');
+        if (videoElement) {
+            videoElement.volume = 1.0;
+            console.log('Głośność ustawiona na 100%');
+        } else {
+            console.log('Nie znaleziono elementu wideo');
+        }
+    }
+
+    function selectQuality() {
+        var settingsButton = document.querySelector('.pb-settings-click');
+        if (settingsButton) {
+            simulateClick(settingsButton);
+            setTimeout(function() {
+                var qualityItem = document.querySelector('li[data-value="hd"] a');
+                if (qualityItem) {
+                    simulateClick(qualityItem);
+                } else {
+                    var qualityItemSD = document.querySelector('li[data-value="sd"] a');
+                    if (qualityItemSD) {
+                        simulateClick(qualityItemSD);
+                    } else {
+                        console.log('Nie znaleziono opcji jakości HD ani SD');
+                    }
+                }
+            }, 100);
+            setVolumeToMax();
+        } else {
+            console.log('Nie znaleziono przycisku ustawień');
+        }
+    }
+
+//    document.addEventListener('keydown', function(event) {
+//        if (event.key === 'q') {
+//            selectQuality();
+//        }
+//    });
+
+    function setupVideoListener() {
+        var videoElement = document.querySelector('video');
+        if (videoElement) {
+            videoElement.addEventListener('loadeddata', selectQuality);
+            console.log('Dodano nasłuchiwanie na załadowanie filmu');
+        } else {
+            console.log('Brak elementu wideo, ponawianie sprawdzania...');
+            setTimeout(setupVideoListener, 500);
+        }
+    }
+
+    setupVideoListener();
+})();

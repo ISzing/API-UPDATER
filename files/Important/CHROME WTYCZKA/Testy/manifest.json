@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Usop",
+  "version": "1.52",
+  "description": "A plugin to sort table data and adjust video settings.",
+  "permissions": ["activeTab", "storage", "tabs"],
+  "host_permissions": [
+    "*://*.cda.pl/*",
+    "*://*.shinden.pl/*",
+    "*://cda.pl/*",
+    "*://shinden.pl/*"
+  ],
+  "icons": {
+    "48": "icon.ico"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.ico",
+      "48": "icon.ico",
+      "128": "icon.ico"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.cda.pl/*",
+        "*://*.shinden.pl/*",
+        "*://cda.pl/*",
+        "*://shinden.pl/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ISzingsorter@example.2com",
+      "strict_min_version": "109.0"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+#Mapowanie klawiszy
+NEXT_EPISODE_AND_SHUTDOWN = End
+Openingsc = insert
+Openingsc2 = F8
+Endingsc = delete
+Endingsc2 = F10
+DOWN = ` 
+OPSkipR = [
+OPSkip =]
+Pause = F12
+Exit = F4
+SpeedUp = F2
+SpeedDown = F3
+Doprzodu = F8
+Dotylu = F9
+wczytaj= F1
+NEXT = Home 
+VOLUME_UP = 2
+VOLUME_DOWN = 1 
+SKIP1 = F5
+SKIP2 = F6
+SKIP3 = F7
+skipwiencej = +
+skipmniej = -
+polskip1 = ,
+polskip2 = .
+koniecodc = *
