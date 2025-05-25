@@ -260,4 +260,4 @@ if __name__ == "__main__":
         MANIFEST_CACHE = generate_manifest()
     
     # Uruchom serwer
-    app.run(host='0.0.0.0', port=54476, threaded=True)
+    app.run(host='0.0.0.0', threaded=True)
